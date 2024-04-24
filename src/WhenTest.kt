@@ -1,4 +1,5 @@
 import Color.*
+import java.util.TreeMap
 
 fun main(){
     val developer = Developer("zero",true, "Kotlin")
@@ -8,7 +9,21 @@ fun main(){
     println("developer s special skill is : ${getSpecialSkill(marketer)}")
 
     println("RED is ${getKoreanColorName(RED)}")
+
+    val binaryReps = TreeMap<Char, String>()
+
+    for(c in 'A' .. 'z'){
+        val binary = Integer.toBinaryString(c.code)
+        binaryReps[c] = binary
+    }
+
+    for((key, value) in binaryReps){
+        println("문자:${key}, 아스키코드:$value")
+    }
+
 }
+
+fun isLetter(c: Char) = c in 'a'..'z'
 
 enum class Color {
     RED, GREEN, BLUE,GRAY
